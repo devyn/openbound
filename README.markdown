@@ -13,9 +13,9 @@ Proposed WAY
 -------------
 * Jack clicks on "Add Friend", and types in Jill's bind URL.
 * Jack's bind creates a new "tracking" object, that is, a record with a 128-bit (32-digit) hexidecimal ID, the string 'outgoing', and Jill's URL.
-* Jack's bind POSTs to /track with data about the "tracking" object, causing Jill's bind to create a new "tracking" object with that data and instead of "outgoing", "incoming".
+* Jack's bind POSTs to /api/track with data about the "tracking" object, causing Jill's bind to create a new "tracking" object with that data and instead of "outgoing", "incoming".
 * The next time Jill logs on to her bind, she is prompted about the friend request and presses YES.
-* Jill's bind POSTs to /track-auth on Jack's bind with information about that tracking object, and the response (YES or NO) and Jack's bind responds with either CONFIRMED or DENIED.
+* Jill's bind POSTs to /api/track-authorize on Jack's bind with information about that tracking object, and the response (YES or NO) and Jack's bind responds with either CONFIRMED or DENIED.
 * If CONFIRMED, Jack **and** Jill's binds **both** add a "friend" object with the "tracking" ID and delete the "tracking" object.
 * However, if DENIED, the friend request was most likely faked and both Jack and Jill will be notified.
 
